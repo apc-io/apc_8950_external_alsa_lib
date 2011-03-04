@@ -43,6 +43,7 @@ ALL_PREBUILT += $(copy_to)
 
 include $(CLEAR_VARS)
 
+LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libasound
 
 LOCAL_PRELINK_MODULE := false
@@ -53,6 +54,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
 # libasound must be compiled with -fno-short-enums, as it makes extensive
 # use of enums which are often type casted to unsigned ints.
 LOCAL_CFLAGS := \
+	-Wno-format-security \
 	-fPIC -DPIC -D_POSIX_SOURCE \
 	-DALSA_CONFIG_DIR=\"/system/usr/share/alsa\" \
 	-DALSA_PLUGIN_DIR=\"/system/usr/lib/alsa-lib\" \
