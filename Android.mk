@@ -14,7 +14,7 @@ include $(CLEAR_VARS)
 TARGET_ALSA_CONF_DIR := $(TARGET_OUT)/usr/share/alsa
 LOCAL_ALSA_CONF_DIR  := $(LOCAL_PATH)/src/conf
 
-copy_from := \
+#copy_from := \
 	alsa.conf \
 	pcm/dsnoop.conf \
 	pcm/modem.conf \
@@ -33,17 +33,17 @@ copy_from := \
 	pcm/front.conf \
 	cards/aliases.conf
 
-copy_to   := $(addprefix $(TARGET_ALSA_CONF_DIR)/,$(copy_from))
-copy_from := $(addprefix $(LOCAL_ALSA_CONF_DIR)/,$(copy_from))
+#copy_to   := $(addprefix $(TARGET_ALSA_CONF_DIR)/,$(copy_from))
+#copy_from := $(addprefix $(LOCAL_ALSA_CONF_DIR)/,$(copy_from))
 
-$(copy_to) : $(TARGET_ALSA_CONF_DIR)/% : $(LOCAL_ALSA_CONF_DIR)/% | $(ACP)
-	$(transform-prebuilt-to-target)
+#$(copy_to) : $(TARGET_ALSA_CONF_DIR)/% : $(LOCAL_ALSA_CONF_DIR)/% | $(ACP)
+#	$(transform-prebuilt-to-target)
 
-ALL_PREBUILT += $(copy_to)
+#ALL_PREBUILT += $(copy_to)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := eng
 LOCAL_MODULE := libasound
 
 LOCAL_PRELINK_MODULE := false
